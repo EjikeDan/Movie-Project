@@ -1,0 +1,124 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.1
+-- Dumped by pg_dump version 15.1
+
+-- Started on 2022-12-06 05:49:03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 217 (class 1259 OID 16410)
+-- Name: movie_comments; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.movie_comments (
+    id integer NOT NULL,
+    movie_id integer NOT NULL,
+    user_id integer NOT NULL,
+    comment text NOT NULL,
+    date_created timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- TOC entry 216 (class 1259 OID 16409)
+-- Name: movie_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.movie_comments ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.movie_comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 219 (class 1259 OID 16419)
+-- Name: movies; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.movies (
+    id integer NOT NULL,
+    name text NOT NULL,
+    description text NOT NULL,
+    release_date text NOT NULL,
+    rating integer NOT NULL,
+    ticket_price real NOT NULL,
+    country text NOT NULL,
+    genre text NOT NULL,
+    photo text NOT NULL,
+    date_created timestamp without time zone DEFAULT now() NOT NULL,
+    slug text NOT NULL
+);
+
+
+--
+-- TOC entry 218 (class 1259 OID 16418)
+-- Name: movies_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.movies ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.movies_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 215 (class 1259 OID 16401)
+-- Name: users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.users (
+    id integer NOT NULL,
+    name text NOT NULL,
+    email text NOT NULL,
+    password text NOT NULL,
+    date_created timestamp without time zone DEFAULT now() NOT NULL,
+    token text NOT NULL
+);
+
+
+--
+-- TOC entry 214 (class 1259 OID 16400)
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+-- Completed on 2022-12-06 05:49:03
+
+--
+-- PostgreSQL database dump complete
+--
+

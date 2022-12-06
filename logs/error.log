@@ -1,0 +1,13 @@
+[2022-12-04 16:11:28] ERROR:  relation "users1" does not exist
+LINE 1: SELECT * FROM users1
+                      ^
+[2022-12-05 12:20:26] ERROR:  bind message supplies 4 parameters, but prepared statement "query" requires 1
+[2022-12-05 17:36:22] ERROR:  invalid input syntax for type integer: "2000-06-07"
+CONTEXT:  unnamed portal parameter $4 = '...'
+[2022-12-05 17:39:30] ERROR:  invalid input syntax for type integer: "2003-01-28"
+CONTEXT:  unnamed portal parameter $4 = '...'
+[2022-12-05 17:48:19] ERROR:  invalid input syntax for type integer: "2022-12-14"
+CONTEXT:  unnamed portal parameter $4 = '...'
+[2022-12-05 18:03:06] ERROR:  prepared statement "my_query" does not exist
+[2022-12-05 18:49:13] ERROR:  invalid input syntax for type integer: "NaN"
+CONTEXT:  unnamed portal parameter $4 = '...'
